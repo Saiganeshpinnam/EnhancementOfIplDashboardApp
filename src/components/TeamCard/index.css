@@ -1,1 +1,47 @@
 /* Write your CSS here */
+
+.each-team-container {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 2px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  padding: 3px;
+  margin: 3px;
+}
+.team-logo {
+  height: 40px;
+  width: 40px;
+}
+.team-name {
+  color: #ffffff;
+  font-size: 8px;
+  font-family: 'Bree Serif';
+  padding: 4px;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  .each-team-container {
+    border-width: 2px;
+    border-radius: 7px;
+    height: 150px;
+    width: 250px;
+    padding: 5px;
+    margin: 5px;
+  }
+  .team-logo {
+    height: 60px;
+    width: 60px;
+  }
+  .team-name {
+    font-size: 20px;
+    padding: 15px;
+    width: 60%;
+  }
+}

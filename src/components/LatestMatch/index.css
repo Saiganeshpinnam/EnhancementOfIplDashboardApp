@@ -1,1 +1,93 @@
 /* Write your CSS here */
+
+.latest-matches-container {
+  background-color: #1e293b;
+  width: 90vw;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.team-location-logo-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.team-location-status-container {
+  color: #ffffff;
+  width: 75%;
+}
+.competing-team-logo {
+  height: 100px;
+  width: 20%;
+}
+.team-indetailed-details-container {
+  color: #ffffff;
+  width: 90%;
+}
+.separator {
+  color: #ffffff;
+  height: 2px;
+  width: 100%;
+}
+.competing-team {
+  font-size: 20px;
+  color: #ffffff;
+  font-family: 'Bree Serif';
+}
+.match-date {
+  font-size: 20px;
+  color: #ffffff;
+  font-family: 'Bree Serif';
+}
+.match-details {
+  font-size: 15px;
+  color: #ffffff;
+  font-family: 'Bree Serif';
+}
+.match-details-information {
+  font-size: 15px;
+  color: #ffffff;
+  font-family: 'Bree Serif';
+}
+
+@media screen and (min-width: 768px) {
+  .latest-matches-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 90vw;
+    border-radius: 8px;
+  }
+  .competing-team-logo {
+    height: 80%;
+    width: 30%;
+  }
+  .team-location-logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  width: 55%;
+}
+  .team-indetailed-details-container {
+    width: 25%;
+  }
+  .separator {
+    display: none;
+  }
+  .competing-team {
+    font-size: 35px;
+  }
+  .match-date {
+    font-size: 30px;
+  }
+  .match-details {
+    font-size: 25px;
+  }
+  .match-details-information {
+    font-size: 20px;
+  }
+}
