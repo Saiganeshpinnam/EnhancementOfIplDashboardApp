@@ -4,8 +4,8 @@ import './index.css'
 const LatestMatch = props => {
   const {updatedDataDetails} = props
   const {latestMatchDetails} = updatedDataDetails
-  console.log(latestMatchDetails)
-  console.log(latestMatchDetails.man_of_the_match)
+ // console.log(latestMatchDetails)
+ // console.log(latestMatchDetails.man_of_the_match)
 
   return (
     <div className="latest-matches-container">

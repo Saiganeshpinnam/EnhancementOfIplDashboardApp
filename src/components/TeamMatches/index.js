@@ -1,4 +1,5 @@
 // Write your code here
+import {Link} from 'react-router-dom'
 
 import {Component} from 'react'
 
@@ -9,6 +10,8 @@ import LatestMatch from '../LatestMatch'
 import MatchCard from '../MatchCard'
 
 import gradientColors from '../../gradientColors'
+
+import TeamPieChart from '../TeamPieChart'
 
 import './index.css'
 
@@ -29,7 +32,7 @@ class TeamMatches extends Component {
 
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const data = await response.json()
-    console.log(data)
+    //   console.log(data)
 
     const updatedData = {
       teamBannerUrl: data.team_banner_url,
@@ -68,16 +71,21 @@ class TeamMatches extends Component {
 
   renderIplTeamDetails = () => {
     const {teamData} = this.state
-    // console.log(teamData)
+    //   console.log(teamData)
     const {teamBannerUrl, latestMatchDetails, recentMatches} = teamData
-    console.log(recentMatches)
-    console.log(latestMatchDetails)
+    //  console.log(recentMatches)
+    //  console.log(latestMatchDetails)
     return (
       <div className="team-matches-bg-container">
         <img src={teamBannerUrl} alt="team banner" className="banner-image" />
-
-        <h1 className="latest-matches-heading">Latest Matches</h1>
-
+        <div className="latest-heading-back-container">
+          <h1 className="latest-matches-heading">Latest Matches</h1>
+          <Link to="/">
+            <button type="button" className="back-btn">
+              Back
+            </button>
+          </Link>
+        </div>
         <LatestMatch updatedDataDetails={teamData} />
         <ul className="recent-matches-container">
           {recentMatches.map(match => (
@@ -91,7 +99,7 @@ class TeamMatches extends Component {
   }
 
   render() {
-    const {isLoading} = this.state
+    const {isLoading, teamData} = this.state
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -114,7 +122,10 @@ class TeamMatches extends Component {
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (
-          <div style={backgroundStyle}>{this.renderIplTeamDetails()}</div>
+          <>
+            <div style={backgroundStyle}>{this.renderIplTeamDetails()}</div>
+            <TeamPieChart teamData={teamData} />
+          </>
         )}
       </>
     )
