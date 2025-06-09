@@ -76,25 +76,25 @@ class TeamMatches extends Component {
     //  console.log(recentMatches)
     //  console.log(latestMatchDetails)
     return (
-      <div className="team-matches-bg-container">
-        <img src={teamBannerUrl} alt="team banner" className="banner-image" />
-        <div className="latest-heading-back-container">
-          <h1 className="latest-matches-heading">Latest Matches</h1>
-          <Link to="/">
-            <button type="button" className="back-btn">
+      <div className='team-matches-bg-container'>
+        <img src={teamBannerUrl} alt='team banner' className='banner-image' />
+        <div className='latest-heading-back-container'>
+          <h1 className='latest-matches-heading'>Latest Matches</h1>
+          <Link to='/'>
+            <button type='button' className='back-btn'>
               Back
             </button>
           </Link>
         </div>
         <LatestMatch updatedDataDetails={teamData} />
-        <ul className="recent-matches-container">
+        <ul className='recent-matches-container'>
           {recentMatches.map(match => (
             <li key={match.id}>
               <MatchCard matchCardDetails={match} />
             </li>
           ))}
         </ul>
-        <div className="pie-chart-container">
+        <div className='pie-chart-container'>
           <TeamPieChart teamData={teamData} />
         </div>
       </div>
@@ -121,8 +121,8 @@ class TeamMatches extends Component {
     return (
       <>
         {isLoading ? (
-          <div testid="loader">
-            <Loader type="Oval" color="#ffffff" height={50} width={50} />
+          <div testid='loader'>
+            <Loader type='Oval' color='#ffffff' height={50} width={50} />
           </div>
         ) : (
           <>

@@ -21,25 +21,31 @@ class TeamPieChart extends Component {
       eachRecentMatch => eachRecentMatch.matchStatus,
     )
     //  console.log(recentMatchStatusList)
-    for (let i = 0; i < recentMatchStatusList.length; i++) {
-      if (recentMatchStatusList.slice(i, i + 1) == 'Won') {
-        this.setState(prevState => ({
-          wonCount: prevState.wonCount + 1,
-        }))
-      } else if (recentMatchStatusList.slice(i, i + 1) == 'Lost') {
-        this.setState(prevState => ({
-          lostCount: prevState.lostCount + 1,
-        }))
+    let won = 0
+    let lost = 0
+    let drawn = 0
+
+    recentMatchStatusList.forEach(status => {
+      if (status === 'Won') {
+        won += 1
+      } else if (status === 'Lost') {
+        lost += 1
       } else {
-        this.setState(prevState => ({
-          drawnCount: prevState.drawnCount + 1,
-        }))
+        drawn += 1
       }
-    }
+    })
+
+    this.setState({
+      wonCount: won,
+      lostCount: lost,
+      drawnCount: drawn,
+    })
   }
 
   render() {
     const {wonCount, lostCount, drawnCount} = this.state
+    console.log(wonCount)
+    console.log(lostCount)
     const data = [
       {
         count: wonCount,
@@ -54,27 +60,23 @@ class TeamPieChart extends Component {
         status: 'Drawn',
       },
     ]
-    //  console.log(data.map(eachData=> eachData.count))
+   // console.log(data.map(eachData => eachData.count))
     return (
-      <ResponsiveContainer
-        width="100%"
-        height={300}
-        
-      >
-        <PieChart >
+      <ResponsiveContainer width="100%" height={300}>
+        <PieChart>
           <Pie
             cx="70%"
             cy="40%"
             data={data}
+            dataKey="count"
             startAngle={0}
             endAngle={360}
             innerRadius="40%"
             outerRadius="70%"
-            dataKey="count"
           >
-            <Cell name="Won" fill="#303675"></Cell>
-            <Cell name="Lost" fill="#266e43"></Cell>
-            <Cell name="Drawn" fill="#44631a"></Cell>
+            <Cell name="Won" fill="#303675" />
+            <Cell name="Lost" fill="#266e43" />
+            <Cell name="Drawn" fill="#44631a" />
           </Pie>
           <Legend
             iconType="circle"
