@@ -94,6 +94,9 @@ class TeamMatches extends Component {
             </li>
           ))}
         </ul>
+        <div className="pie-chart-container">
+          <TeamPieChart teamData={teamData} />
+        </div>
       </div>
     )
   }
@@ -124,7 +127,6 @@ class TeamMatches extends Component {
         ) : (
           <>
             <div style={backgroundStyle}>{this.renderIplTeamDetails()}</div>
-            <TeamPieChart teamData={teamData} />
           </>
         )}
       </>
